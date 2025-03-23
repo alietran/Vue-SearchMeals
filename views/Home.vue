@@ -1,17 +1,5 @@
 <template>
-  <div class="flex justify-center p-8">
-   
-  </div>
-  <div class="flex justify-center gap-1">
-    <router-link
-      :to="{ name: 'byLetter', params: { letter } }"
-      key="letter"
-      v-for="letter of letters.split('')"
-    >
-      {{ letter }}
-    </router-link>
-  </div>
-
+  <div class="flex justify-center p-8"></div>
   <pre>{{ ingredients }}</pre>
 </template>
 <script setup>

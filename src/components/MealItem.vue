@@ -23,7 +23,7 @@
 <script setup>
 import YoutubeButton from "./YoutubeButton.vue";
 
-const props = defineProps({
+const { meal } = defineProps({
   meal: Object,
 });
 </script>
