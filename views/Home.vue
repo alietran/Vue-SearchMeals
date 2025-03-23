@@ -1,10 +1,6 @@
 <template>
   <div class="flex justify-center p-8">
-    <input
-      type="text"
-      class="rounded border-2 border-gray-2 w-64 p-3"
-      placeholder="search for meal"
-    />
+   
   </div>
   <div class="flex justify-center gap-1">
     <router-link
@@ -15,17 +11,20 @@
       {{ letter }}
     </router-link>
   </div>
+
+  <pre>{{ ingredients }}</pre>
 </template>
 <script setup>
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import axiosClient from "../axiosClient";
 import store from "../store";
 
 const meals = computed(() => store.state.meals);
-const letters = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
+
+const ingredients = ref([]);
 
 onMounted(async () => {
   const response = await axiosClient.get("/list.php?i=list");
-  console.log(response);
+  ingredients.value = response.data;
 });
 </script>
